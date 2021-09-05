@@ -95,6 +95,7 @@ void baseUi(int w, int h) {
   initBlankMap(w, h);
   pushMapToRender();
 }
+/** Choose between difficulty options between [0-2]*/
 bool chooseLevelUi() {
   baseUi(30, 12);
   int optsNum = 3;
@@ -102,6 +103,7 @@ bool chooseLevelUi() {
   for (int i = 0; i < optsNum; i++) opts[i] = texts + i + 10;
   int opt = chooseOptions(optsNum, opts);
   if (opt != optsNum) setLevel(opt);
+  printf("Chosed %i",opt);
   clearRenderer();
   return opt != optsNum;
 }

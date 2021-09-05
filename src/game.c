@@ -64,10 +64,12 @@ double GAME_MONSTERS_HP_ADJUST;
 double GAME_MONSTERS_WEAPON_BUFF_ADJUST;
 double GAME_MONSTERS_GEN_FACTOR;
 void setLevel(int level) {
+  // GG Hacked to reduce difficulty. Level starts from 0 (easy)
   gameLevel = level;
   spritesSetting = 25;
   bossSetting = 2;
-  herosSetting = 8;
+  // Was 8: Control the number of hero which appears....
+  herosSetting = MAX(10,25 - stage*2);
   flasksSetting = 6;
   GAME_LUCKY = 1;
   GAME_DROPOUT_YELLOW_FLASKS = 0.3;
@@ -77,7 +79,8 @@ void setLevel(int level) {
   GAME_MONSTERS_GEN_FACTOR = 1 + level * 0.5 + stage * level * 0.05;
   GAME_MONSTERS_WEAPON_BUFF_ADJUST = 1 + level * 0.8 + stage * level * 0.02;
   AI_LOCK_LIMIT = MAX(1, 7 - level * 2 - stage / 2);
-  GAME_WIN_NUM = 10 + level * 5 + stage * 3;
+  // Hacked to make it a little easier to win (was level*5)
+  GAME_WIN_NUM = 10 + level * 4 + stage * 3;
   if (level == 0) {
   } else if (level == 1) {
     GAME_DROPOUT_WEAPONS = 0.98;
