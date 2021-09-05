@@ -8,7 +8,7 @@ Singleplayer
 Multiplayers
 Ranklist
 Exit
-Normal
+Easy (BETA)
 Hard
 Insane
 Local
